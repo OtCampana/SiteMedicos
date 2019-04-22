@@ -1,0 +1,129 @@
+﻿@model IEnumerable<login.Models.Medico>
+
+@{
+    ViewBag.Title = "Busca";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<body>
+
+
+
+    <div class="form-horizontal">
+        <div class="row">
+            <div class=" col-md-3 col-md-offset-4">
+                <form action="" class="search-form">
+                    <div class="form-group has-feedback">
+                        <label for="search" class="sr-only">Search</label>
+                        <input type="text" class="form-control" name="text" id="texto" placeholder="Busca" />
+                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Especialidade.EspecialidadeNome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CRM)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Endereco)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bairro)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cidade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Estado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pais)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AtendePorConvenio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TemClinica)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WebsiteBlog)
+                </th>
+                <th></th>
+            </tr>
+
+
+            @{
+                if (Model == null)
+                {
+
+
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Especialidade.EspecialidadeNome)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CRM)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nome)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Endereco)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Bairro)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cidade)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Estado)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Pais)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AtendePorConvenio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TemClinica)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.WebsiteBlog)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+
+        </table>
+    </div>
+
+</body>
+}
+
